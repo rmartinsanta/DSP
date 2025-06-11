@@ -1,0 +1,121 @@
+tabu-search:
+  # Max iterations is calculated as number of nodes multiplied by max-iterations-rate, with a minimum of 100.
+  max-iterations-rate: 0.5
+  # Tabu tenure is calculated as a percentage of the number of nodes in the graph
+  tabu-tenure: 0.05
+  # Flags to activate additional components:
+  # - Long term frequency memory
+  use-long-term-memory: false
+  # - Strategic oscillation
+  use-strategic-oscillation: true
+  # --- Number of iterations to allow infeasible moves
+  strategic-oscillation-rate: 0.10
+
+
+instances:
+
+  # Loads all instances in RAM before starting each experiment.
+  # Can be disabled for example in problems where instances are huge in order to save some RAM.
+  # Warning: Disabling it reverts instance solve order to instance name (lexicographically)
+  preload: false
+
+  path:
+    # Default instance path for all experiments, can be overridden.
+    #default: 'instances/nuevas'
+    #default: 'instances/testgraphs/IEEE-30.graph'
+    #default: 'instances/testgraphs/'
+    #default: 'instances/nuevas/Grid/Grid 11x11.txt'
+    #default: 'instances/nuevas/RandomConvexos'
+    #default: 'instances/develop'
+    default: 'instances/finales'
+    #default: 'instances/test'
+    #default: 'instances/LiteratureAndNewInstances'
+
+    # Override default instance path only for the experiment declared in file PreliminarExperiment.java
+    # If an experiment does not have a specific path the default will be used. Example:
+    # PreliminarExperiment: './instances/preliminar'
+
+  # Instance selection: requires invoking the jar with a proper parameter
+  #     java -jar mork.jar --instance-selector
+  preliminar-percentage: 0.10
+  preliminar-output-path: 'instances/selected'
+  for-selection: '/Users/chema/Desktop/DS_Instances'
+
+
+solver:
+  # Global random seed to ensure reproducibility
+  seed: 1234
+
+  # Random generator provider, see RandomType enum for a full list of available implementations
+  random-type: default
+
+  # Which experiments should be executed? .* --> All.
+  # Experiment names default to the class name in which they are declared unless overridden.
+  # Tip, you may use a Regex, example: Preeliminar.*
+  experiments: 'TabuSearchExperiment'
+  #experiments: 'PDSPAlgorithmBuilder'
+
+  # How many times should each experiment be repeated. Recommended a minimum of 30
+  repetitions: 30
+
+  # Use parallel executor DISABLE IF THE ALGORITHM IS ALREADY PARALLELIZED
+  # Valid Values: true, false
+  parallelExecutor: true
+
+  # Number of workers to use if parallelExecutor is enabled
+  # any number between 1 and MAX_INT, or -1 to automatically decide at runtime (available threads / 2)
+  nWorkers: -1
+
+  # Execute benchmark before starting solver? False to skip benchmark.
+  benchmark: false
+
+
+  # Autoconfig properties
+  autoconfig: false
+  tree-depth: 4
+
+  # Enable or disable metrics tracking. Force enabled if using autoconfig.
+  metrics: true
+
+
+# Enable irace integration? Check IRACE Wiki section before enabling
+irace:
+  enabled: true
+
+  # False: (EXPERIMENTAL) use GraalVM implementation, does not need R installed locally
+  # True: (RECOMMENDED) Use shell to execute R scripts, R / Rscript need to be locally installed and in path
+  shell: true
+
+  # Maximum number of algorithm executions
+  maxExperiments: 10000
+
+
+# Event system integrations/configuration
+event:
+  # Stop webserver after all work is done?
+  # If true, app will stop after all experiments finish executing, and front end will stop loading. (DEFAULT)
+  # If false, webserver will keep executing, and front will be available until manually stopped by the user.
+  webserver:
+    stopOnExecutionEnd: true
+
+  # Enable message notifications to any given user on experiment end. See
+  telegram:
+    # If false bot is completely disabled
+    enabled: false
+    # Token returned by @BotFather
+    token: ''
+    # Chat where we will send notifications
+    chatId: ''
+
+# Experiment execution DOES NOT (usually) END if an uncontrolled exception is propagated
+# The error is logged, and we try to keep solving
+errors:
+  # Write exceptions and errors with their context to disk?
+  errorsToFile: true
+
+  # Path where all errors or exceptions encountered during experiment execution will be exported
+  folder: 'errors'
+
+# Set default server port (change if there is multiple Mork instances running)
+server:
+  port : 8080

@@ -1,0 +1,12 @@
+.idea
+log.txt
+errors
+target
+PDSP.iml
+.DS_Store
+
+
+/.benchmark
+solutions/
+results/
+/instances/alejandra/

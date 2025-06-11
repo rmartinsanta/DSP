@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ScoreParser" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="es.urjc.etsii.grafo.PDSP.ScoreParser" />
+    <module name="PDSP" />
+    <option name="PROGRAM_PARAMETERS" value="solutions/TabuSearchExperiment_zachary.txt_TS_Iters_SO_off_Basic_bestiter_.json" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="es.urjc.etsii.grafo.PDSP.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
