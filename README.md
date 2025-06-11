@@ -1,8 +1,8 @@
-# [PDSP](https://doi.org/XXXXX)
+# [PDSP](#)
 Dominating Set Problem. Under review, README will be updated soon after publication.
 
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXX)
+Archived artifacts:
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15641557.svg)](https://doi.org/10.5281/zenodo.15641557)
 
 ## Abstract
 Tabu Search is a metaheuristic renowned for its ability to navigate complex solution spaces by iteratively exploring neighborhoods and intelligently diversifying the search process to avoid getting trapped in local optima. We describe the main elements of the tabu search methodology in the context of finding high-quality solutions to the minimum dominating set problem (MDSP). The MDSP is a fundamental combinatorial optimization challenge with applications in various fields, including network design, social network analysis, and bioinformatics.
